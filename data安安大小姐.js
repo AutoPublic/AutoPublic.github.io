@@ -52,6 +52,16 @@ const product = [
                 name: '下集（完篇）'
             }
      ]
+    },  
+    {
+     id: '233',
+     name: '绿意复仇',
+        items: [
+            {
+                id: '234',
+                name: '第一集'
+            }
+     ]
     }
 ]
 const authorLinkPath = 'AAXJ003'
