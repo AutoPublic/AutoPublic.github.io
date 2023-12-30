@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>天天界的发电站</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="./lib/bootstrap-4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./lib/toastr/toastr.min.css" />
+    <link
+      rel="stylesheet"
+      href="./lib/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css"
+    />
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+      /* 在手机上显示 */
+      html { height: 100vh; }
+      .main-page { margin-left: 20px; }
+      
+      .app-content h5 { font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; }
+      .app-content p { font-size: 1rem; margin-bottom: 30px; width: 100%; }
+      .introduction { color: white;}
+
+      .content { padding: 30px 30px;}
+      .content-img { width: 100%; height: 60vh; position: relative; background-size: cover; background-position: center; }
+
+      #order-form label { width: 100px; }
+      #order-form input { border: none; border-radius: 6px; background-color: #f2f2f2; }
+      #order-form select { width: 200px; border: none; border-radius: 6px; background-color: #f2f2f2; }
+      #order-form select::-ms-expand { display: none; }
+      #order-form select option { font-size: 17px; }
+      #order-form .form-check-label { width: 70px; }
+      .invalid-feedback { margin-left: 100px; }
+      
+      .click-text { font-size: 1.3rem; font-weight: 700;}
+
+      /* 在电脑上显示 */
+      @media (min-width: 768px) {
+        .main-page { margin-left: 80px; }
+        .content { padding: 150px 100px; }
+        .app-content h5 { font-size: 3rem; font-weight: 700; margin-bottom: 30px; }
+        .app-content p { font-size: 1.25rem; }
+        .content-img { width: 100%; height: 70vh; }
+      }
+
+      @media (min-width: 1200px) {
+        .main-page { margin-left: 200px; }
+        .content { padding: 160px 220px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-content">
+      <div class="content-img" style="background-image: url(./assets/img/bg2_1.jpg);">
+        <div class="content">
+          <div class="row main-content"  style="height: 65vh;  text-align: center;">
+            <div class="col-12">
+              <div class="introduction">
+                <h5  style="font:bold;color:black">天天界</h5>
+        <p style="font:bold;color:black">
+          选择需要解锁的项目，填好<span>正确的邮箱</span>下单，下单成功后系统自动发送邮件<br/>
+          <span>原创不易，喜欢请支持！</span>
+        </p>
+        <p style="font:bold;color:red">
+          请记得收藏本网页【天天界的发电站】，最新的更新都在这里！
+        </p>
+              </div>
+              <div>
+                <a class="btn btn-primary" href="#form-div" role="button">了解更多</a>
+              </div>
+            </div>
+          </div>
+  
+          <div style="text-align: center;" class="row justify-content-center" id="form-div">
+            <div class="col-md-12 col-12" >
+              <h5>项目列表</h5>
+            </div>
+          </div>
+  
+          <div class="row justify-content-center">
+            <div class="col-md-8 col-12">
+              <div class="mt-5">
+                <img
+                  src="./assets/bootstrap-icons/house-fill.svg"
+                  alt="主页"
+                  width="26"
+                />
+                <span
+                  style="
+                    line-height: 28px;
+                    font-size: 1.25rem;
+                    vertical-align: middle;
+                  "
+                  >个人项目</span
+                >
+                <p style="font-size: 1rem; margin-top: 5px">
+                  欢迎订阅我的个人项目
+                </p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row justify-content-center">
+            <div class="col-md-8 col-12" >
+              <form id="order-form">
+                <div class="input-group mb-3 form-group">
+                  <label for="unlockSeries" class="col-form-label label-text"
+                    >解锁系列
+                  </label>
+                  <select
+                    class="form-control"
+                    name="unlockSeries"
+                    id="unlockSeries"
+                  >
+                    <option value="" selected>请选择要解锁的系列</option>
+                  </select>
+                </div>
+  
+                <div class="input-group mb-3 form-group">
+                  <label for="unlockItem" class="col-form-label label-text"
+                    >解锁项目
+                  </label>
+                  <select class="form-control" name="unlockItem" id="unlockItem">
+                    <option value="" selected>请选择要解锁的项目</option>
+                  </select>
+                </div>
+  
+                <div class="input-group mb-3 form-group">
+                  <label for="email" class="col-form-label label-text"
+                    >通知邮箱
+                  </label>
+                  <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="请输入您的邮箱, 例: 123456@qq.com"
+                  />
+                </div>
+  
+                <div class="input-group mb-3 form-group">
+                  <label class="col-form-label label-text">支付方式</label>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      checked
+                      name="payType"
+                      id="alipay"
+                      value="ALIPAY"
+                      required
+                    />
+                    <label class="form-check-label" for="alipay">支付宝</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="payType"
+                      id="wechat-pay"
+                      value="WECHAT_PAY"
+                      required
+                    />
+                    <label class="form-check-label" for="wechat-pay">微信</label>
+                  </div>
+                </div>
+  
+                <div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary query-btn"
+                    style="width: 100px; display: inline-block"
+                    onclick="doCreateOrder()"
+                  >
+                    支付
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-primary query-btn-loading d-none"
+                    style="width: 160px"
+                    disabled
+                  >
+                    <span
+                      class="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    正在创建订单...
+                  </button>
+  
+                  <div
+                    style="
+                      line-height: 38px;
+                      margin-top: 10px;
+                    "
+                  >
+                  如未收到邮箱，请
+                    <span class="click-text"
+                      ><a href="javascript:;" onclick="toQueryPage()"
+                        >【点击这里】</a
+                      ></span
+                    >
+                    查询订单
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <script src="./lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="./lib/bootstrap-4/js/bootstrap.bundle.min.js"></script>
+    <script src="./lib/sweetalert2/sweetalert2.min.js"></script>
+    <script src="./lib/jquery-validation/jquery.validate.min.js"></script>
+    <script src="./lib/jquery-validation/additional-methods.min.js"></script>
+    <script src="./data天天界.js"></script>
+    <script>
+      let Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+
+      function toQueryPage() {
+        window.location.href = baseUrl + "/order/detail";
+      }
+
+      function doCreateOrder() {
+        $("#order-form").validate({
+          rules: {
+            unlockItem: {
+              required: true,
+              min: 1,
+            },
+            email: {
+              required: true,
+              email: true,
+            },
+            payType: {
+              required: true,
+            },
+          },
+          messages: {
+            unlockItem: {
+              required: "请选择要解锁的项目",
+              min: "请选择要解锁的项目",
+            },
+            email: {
+              required: "请填写接收通知的邮箱",
+              email: "请填写正确的邮箱地址",
+            },
+            payType: {
+              required: "请选择支付方式",
+            },
+          },
+          errorElement: "span",
+          errorPlacement: function (error, element) {
+            error.addClass("invalid-feedback");
+            element.closest(".form-group").append(error);
+          },
+          highlight: function (element, errorClass, validClass) {
+            $(element).addClass("is-invalid");
+          },
+          unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass("is-invalid");
+          },
+          submitHandler: function () {
+            $(".query-btn").addClass("d-none");
+            $(".query-btn-loading").removeClass("d-none");
+
+            let path =
+              baseUrl +
+              "/order/create/payment?payment=" +
+              $("input[name='payType']:checked").val().trim() +
+              "&productId=" +
+              $("select[name='unlockItem']").val().trim() +
+              "&remark=" +
+              $("input[name='email']").val().trim();
+            window.location.href = path;
+            return false;
+          },
+        });
+      }
+
+      $(function () {
+        let seriesOptions =
+          '<option value="" selected>请选择要解锁的系列</option>';
+        product.forEach((element) => {
+          seriesOptions +=
+            '<option value="' + element.id + '">' + element.name + "</option>";
+        });
+        $("#unlockSeries").empty().append(seriesOptions);
+
+        $("#unlockSeries").change(function () {
+          let selectedValue = $(this).val();
+          console.log("猫");
+          if (selectedValue === "" || selectedValue === undefined) {
+            $("#unlockItem")
+              .empty()
+              .append('<option value="" selected>请选择要解锁的项目</option>');
+            return;
+          }
+          let options = '<option value="" selected>请选择要解锁的项目</option>';
+          product.forEach((element) => {
+            if (element.id === selectedValue) {
+              element.items.forEach((item) => {
+                let option =
+                  '<option value="' + item.id + '">' + item.name + "</option>";
+                options += option;
+              });
+            }
+          });
+          $("#unlockItem").empty().append(options);
+        });
+      });
+    </script>
+  </body>
+</html>
