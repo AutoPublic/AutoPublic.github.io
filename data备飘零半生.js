@@ -31,5 +31,5 @@ const product = [
     }
 ]
 
-const authorLinkPath = 'BPLBS002'
+const authorLinkPath = 'BPLBS001'
 const baseUrl = "http://93.179.96.220:8070"
