@@ -18,8 +18,18 @@ const product = [
                 name: '全篇'
             }
      ]
+    },  
+    {
+     id: '235',
+     name: '神药逆袭',
+        items: [
+            {
+                id: '236',
+                name: '上篇'
+            }
+     ]
     }
 ]
 
-const authorLinkPath = 'BPLBS001'
+const authorLinkPath = 'BPLBS002'
 const baseUrl = "http://93.179.96.220:8070"
