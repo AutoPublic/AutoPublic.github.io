@@ -56,6 +56,10 @@ const product = [
             {
                 id: '161',
                 name: 'P1'
+            },
+            {
+                id: '241',
+                name: 'P2'
             }
      ]
     },
