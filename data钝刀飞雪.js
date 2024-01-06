@@ -72,6 +72,14 @@ const product = [
             {
                 id: '154',
                 name: 'P10'
+            },
+            {
+                id: '242',
+                name: 'P11'
+            },
+            {
+                id: '243',
+                name: '全篇'
             }
         ]
     },
