@@ -138,6 +138,10 @@ const product = [
             {
                 id: '183',
                 name: 'P1'
+            },
+            {
+                id: '245',
+                name: 'P2'
             }
      ]
     }
